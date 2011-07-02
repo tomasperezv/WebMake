@@ -1,0 +1,4 @@
+
+function anotherFunction() {
+	// Dummy function
+}
