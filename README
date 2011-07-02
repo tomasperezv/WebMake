@@ -1,0 +1,8 @@
+WebMake
+
+- Static files builder for web projects:
+	- Minimize: compile using closure
+	- Generate bundles
+
+- Simple setup:
+	- JSON Config
