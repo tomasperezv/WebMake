@@ -1,8 +1,35 @@
 WebMake
 
-- Static files builder for web projects:
-	- Minimize: compile using closure
-	- Generate bundles
+- A simple and easy to use static files builder, for web projects:
 
-- Simple setup:
-	- JSON Config
+	- Minimize files and applies the Closure compiler to Javascript.
+	- Merge and generate set of files.
+
+- It uses a simple setup based on JSON, like:
+		{
+			"optimization": "ADVANCED_OPTIMIZATIONS",
+			"bundles": [
+				{
+					"files": [
+						"./js/1.js",
+						"./js/2.js",
+						"./js/3.js"
+					],
+					"output": "./js/bundle1.js"
+				},
+				{
+					"files": [
+						"./css/1.css",
+						"./css/2.css"
+					],
+					"output": "./css/bundle2.css"
+				}
+			]
+		}
+
+- Generate statistics of the results.
+
+- Usage: python webmake.py [path to JSON setup]
+	- e.g. webmake.py ./example/project.json
+
+- Author: tomasperezv {tom AT 0x101.com} / http://www.0x101.com
