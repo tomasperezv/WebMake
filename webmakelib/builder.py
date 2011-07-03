@@ -21,13 +21,15 @@ class WebMakeBuilder(threading.Thread):
 	def run(self):
 		print 'building ' + self.__fileBundle.getOutputName()
 		for i in range(len(self.__fileBundle.getFiles())):
-			closure = WebMakeClosure(self.__optimization)
 			content = self.__fileBundle.readContent(i)
-			if self.__fileBundle.isJavascript():
-				# Apply the closure compiler
-				self.__fileBundle.addRawContent(closure.compileString(content))
-			else:
-				# Just merge the files
-				self.__fileBundle.addRawContent(content)
+			# Merge the files
+			self.__fileBundle.addRawContent(content)
+
+		if self.__fileBundle.isJavascript():
+			# Compress the code using the closure compiler
+			closure = WebMakeClosure(self.__optimization)
+			compressed = closure.compileString(self.__fileBundle.getRawContent())
+			self.__fileBundle.setRawContent(compressed)
+
 		# Generate the output for the current file bundle
 		self.__fileBundle.build()

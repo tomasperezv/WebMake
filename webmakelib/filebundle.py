@@ -45,6 +45,9 @@ class WebMakeFileBundle:
 		outputFile = open(self.__outputName, 'w')
 		outputFile.write(self.__rawContent)
 		outputFile.close()
+	
+	def setRawContent(self, content):
+		self.__rawContent = content
 
 	def getRawContent(self):
 		return self.__rawContent
