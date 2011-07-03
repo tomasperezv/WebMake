@@ -4,6 +4,11 @@ WebMake
 
 	- Minimize files and applies the Closure compiler to Javascript.
 	- Merge and generate set of files.
+	- Threading for processing each file bundle separately, so it can get a
+	  better performance while waiting for the network requests(to the Closure API).
+
+- Usage: python webmake.py [path to JSON setup]
+	- e.g. webmake.py ./example/project.json
 
 - It uses a simple setup based on JSON, like:
 		{
@@ -28,8 +33,5 @@ WebMake
 		}
 
 - Generate statistics of the results.
-
-- Usage: python webmake.py [path to JSON setup]
-	- e.g. webmake.py ./example/project.json
 
 - Author: tomasperezv {tom AT 0x101.com} / http://www.0x101.com
