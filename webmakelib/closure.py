@@ -34,7 +34,7 @@ class WebMakeClosure:
 		'''
 		return urllib.urlencode([
 			('js_code', codeString),
-			('compilation_level', 'WHITESPACE_ONLY'),
+			('compilation_level', self.__optimization),
 			('output_format', 'text'),
 			#('output_info', 'statistics'),
 			('output_info', 'compiled_code'),
